@@ -1,6 +1,7 @@
 var flickrApp = angular.module('flickrApp',[]);
 
 flickrApp.controller("MainCtrl", function ($scope, $http) {
+    $scope.loading = false;
     $scope.getData = function (searchField) {
       $scope.loading = true;
       $http.jsonp("http://www.flickr.com/services/feeds/photos_public.gne?tags="+searchField+"&format=json&jsoncallback=JSON_CALLBACK").
