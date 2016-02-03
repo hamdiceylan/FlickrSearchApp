@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="flickrApp">
+<head>
+    <meta charset="utf-8">
+<title> Flickr Angular App</title>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+<link rel="stylesheet" href="styles/masonry.css" >
+
+
+</head>
+<body ng-controller="MainCtrl">
+
+   <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Flickr App developed with Angular.js</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container main" ng-controller="MainCtrl">
+      <form ng-submit="getData(searchField)">
+        <div class="row" style="height: 75px; width: 100%;">
+            <input type="text" data-ng-model="searchField" placeholder="Type a keyword to search on Flickr and hit enter" class="form-control input-lg"/>
+        </div>
+      </form>
+      <hr>
+      <div style="float:left">
+        <span ng-if="images">Top {{resultCount}} results for {{searchField}} Search</span>
+      </div>
+      <div style="float:right">
+        <select class="form-control" data-ng-model="resultCount" ng-init="resultCount =20" ng-show="images">
+          <option value="20">20 Items</option>
+          <option value="10">10 Items</option>
+          <option value="5">5 Items</option>
+        </select>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-12" ng-if="loading">
+          Loading Data Plesase Wait...
+          <br />
+          <br />
+          <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" />
+        </div>
+        <div class="col-sm-4" ng-repeat="image in images | limitTo: resultCount">
+          <div class="thumbnail">
+            <img ng-src="{{image.media.m}}" title="{{image.title}}">
+            <div class="caption">
+              <h4><a target="_blank" href="{{image.link}}">{{image.title}}</a></h4>
+              <p>Published on {{image.published | date:'d MMMM yyyy, HH:mm'}}</p>
+              <h4>Tags</h4>
+              <p>
+                <span>{{image.tags}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>Developed by <a href="https://github.com/hamdiceylan">Hamdi Ceylan</a></p>
+      </div>
+    </div>
+
+</body>
+</html>		

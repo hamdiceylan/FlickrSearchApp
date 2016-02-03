@@ -1,0 +1,26 @@
+{
+  "name": "flicker-search-app",
+  "description": "Flickr Search Application with AngularJS",
+  "main": "index.html",
+  "authors": [
+    "Hamdi Ceylan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Flickr",
+    "Angular",
+    "TDD",
+    "Karma",
+    "Jasmine"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
