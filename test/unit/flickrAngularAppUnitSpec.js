@@ -2,7 +2,7 @@ describe('Testing Flickr Angular App',function () {
 	
     beforeEach(module("flickrApp"));
 
-    describe('',function () {
+    describe('Testing controllers',function () {
     var scope, ctrl;
 
     beforeEach(inject(function($controller,$rootScope,$httpBackend){
